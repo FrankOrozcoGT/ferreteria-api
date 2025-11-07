@@ -1,16 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import PDFDocument from 'pdfkit';
+import * as fs from 'fs';
+import * as path from 'path';
 import { ClientesService } from '../clientes/clientes.service';
 import { CarritoService } from '../carrito/carrito.service';
 
 @Injectable()
 export class CotizacionService {
+  private readonly publicDir = path.join(process.cwd(), 'public', 'pdfs');
+
   constructor(
     private readonly clientesService: ClientesService,
     private readonly carritoService: CarritoService,
-  ) {}
+  ) {
+    if (!fs.existsSync(this.publicDir)) {
+      fs.mkdirSync(this.publicDir, { recursive: true });
+    }
+  }
 
-  async generarPDFCotizacion(clienteId: string): Promise<Buffer> {
+  async generarPDFCotizacion(clienteId: string): Promise<string> {
     const cliente = this.clientesService.obtenerCliente(clienteId);
     if (!cliente) {
       throw new Error('Cliente no existe');
@@ -21,13 +29,21 @@ export class CotizacionService {
       throw new Error('El carrito está vacío');
     }
 
+    const filename = `cotizacion-${clienteId}-${Date.now()}.pdf`;
+    const filePath = path.join(this.publicDir, filename);
+    
+    await this.crearPDF(cliente, carrito, filePath);
+
+    const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+    return `${baseUrl}/pdfs/${filename}`;
+  }
+
+  private async crearPDF(cliente: any, carrito: any, filePath: string): Promise<void> {
     return new Promise((resolve, reject) => {
       const doc = new PDFDocument({ margin: 50 });
-      const chunks: Buffer[] = [];
+      const writeStream = fs.createWriteStream(filePath);
 
-      doc.on('data', (chunk) => chunks.push(chunk));
-      doc.on('end', () => resolve(Buffer.concat(chunks)));
-      doc.on('error', reject);
+      doc.pipe(writeStream);
 
       // Encabezado
       doc.fontSize(20).text('COTIZACIÓN DE FERRETERÍA', { align: 'center' });
@@ -96,6 +112,9 @@ export class CotizacionService {
       doc.text('Gracias por su preferencia.', { align: 'center' });
 
       doc.end();
+
+      writeStream.on('finish', () => resolve());
+      writeStream.on('error', reject);
     });
   }
 }
