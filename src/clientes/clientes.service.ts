@@ -32,4 +32,8 @@ export class ClientesService {
   validarCliente(clienteId: string): boolean {
     return this.clientes.has(clienteId);
   }
+
+  listarClientes(): Cliente[] {
+    return Array.from(this.clientes.values());
+  }
 }

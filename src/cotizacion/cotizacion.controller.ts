@@ -19,6 +19,21 @@ export class CotizacionController {
       clienteId,
     };
   }
+
+  @Get('listado')
+  listarCotizaciones(@Query('clienteId') clienteId: string) {
+    if (!clienteId) {
+      throw new Error('clienteId es requerido');
+    }
+
+    const cotizaciones = this.cotizacionService.listarCotizaciones(clienteId);
+    
+    return {
+      clienteId,
+      total: cotizaciones.length,
+      cotizaciones,
+    };
+  }
 }
 
 

@@ -5,9 +5,19 @@ import * as path from 'path';
 import { ClientesService } from '../clientes/clientes.service';
 import { CarritoService } from '../carrito/carrito.service';
 
+export interface Cotizacion {
+  id: string;
+  clienteId: string;
+  pdfUrl: string;
+  fecha: string;
+  total: number;
+  items: any[];
+}
+
 @Injectable()
 export class CotizacionService {
   private readonly publicDir = path.join(process.cwd(), 'public', 'pdfs');
+  private cotizaciones: Map<string, Cotizacion[]> = new Map();
 
   constructor(
     private readonly clientesService: ClientesService,
@@ -29,13 +39,37 @@ export class CotizacionService {
       throw new Error('El carrito está vacío');
     }
 
-    const filename = `cotizacion-${clienteId}-${Date.now()}.pdf`;
+    const timestamp = Date.now();
+    const filename = `cotizacion-${clienteId}-${timestamp}.pdf`;
     const filePath = path.join(this.publicDir, filename);
     
     await this.crearPDF(cliente, carrito, filePath);
 
     const baseUrl = process.env.RENDER_EXTERNAL_URL || process.env.BASE_URL || 'http://localhost:3000';
-    return `${baseUrl}/pdfs/${filename}`;
+    const pdfUrl = `${baseUrl}/pdfs/${filename}`;
+
+    const cotizacion: Cotizacion = {
+      id: `COT-${timestamp}`,
+      clienteId,
+      pdfUrl,
+      fecha: new Date().toISOString(),
+      total: carrito.total,
+      items: carrito.items,
+    };
+
+    if (!this.cotizaciones.has(clienteId)) {
+      this.cotizaciones.set(clienteId, []);
+    }
+    this.cotizaciones.get(clienteId)!.push(cotizacion);
+
+    return pdfUrl;
+  }
+
+  listarCotizaciones(clienteId: string): Cotizacion[] {
+    if (!this.clientesService.validarCliente(clienteId)) {
+      throw new Error('Cliente no existe');
+    }
+    return this.cotizaciones.get(clienteId) || [];
   }
 
   private async crearPDF(cliente: any, carrito: any, filePath: string): Promise<void> {
