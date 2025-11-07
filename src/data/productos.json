@@ -1,0 +1,182 @@
+[
+  {
+    "id": "PROD-001",
+    "nombre": "Martillo de Carpintero 16oz",
+    "categoria": "herramientas-mano",
+    "precio": 185.50,
+    "stock": 45,
+    "marca": "Stanley",
+    "descripcion": "Martillo con mango de fibra de vidrio"
+  },
+  {
+    "id": "PROD-002",
+    "nombre": "Taladro Percutor 750W",
+    "categoria": "herramientas-electricas",
+    "precio": 1250.00,
+    "stock": 12,
+    "marca": "DeWalt",
+    "descripcion": "Taladro con percutor reversible"
+  },
+  {
+    "id": "PROD-003",
+    "nombre": "Juego de Desarmadores 6 piezas",
+    "categoria": "herramientas-mano",
+    "precio": 320.00,
+    "stock": 30,
+    "marca": "Truper",
+    "descripcion": "Set de desarmadores planos y de cruz"
+  },
+  {
+    "id": "PROD-004",
+    "nombre": "Sierra Circular 7 1/4\"",
+    "categoria": "herramientas-electricas",
+    "precio": 2100.00,
+    "stock": 8,
+    "marca": "Makita",
+    "descripcion": "Sierra circular 1800W con guía láser"
+  },
+  {
+    "id": "PROD-005",
+    "nombre": "Nivel de Burbuja 24\"",
+    "categoria": "herramientas-medicion",
+    "precio": 165.00,
+    "stock": 25,
+    "marca": "Stanley",
+    "descripcion": "Nivel magnético de aluminio"
+  },
+  {
+    "id": "PROD-006",
+    "nombre": "Cinta Métrica 5m",
+    "categoria": "herramientas-medicion",
+    "precio": 95.00,
+    "stock": 60,
+    "marca": "Truper",
+    "descripcion": "Cinta métrica auto-retráctil con freno"
+  },
+  {
+    "id": "PROD-007",
+    "nombre": "Llave Ajustable 12\"",
+    "categoria": "herramientas-mano",
+    "precio": 245.00,
+    "stock": 35,
+    "marca": "Crescent",
+    "descripcion": "Llave inglesa ajustable cromada"
+  },
+  {
+    "id": "PROD-008",
+    "nombre": "Pistola de Calor 2000W",
+    "categoria": "herramientas-electricas",
+    "precio": 890.00,
+    "stock": 15,
+    "marca": "Black+Decker",
+    "descripcion": "Pistola térmica con control de temperatura"
+  },
+  {
+    "id": "PROD-009",
+    "nombre": "Alicate de Corte 8\"",
+    "categoria": "herramientas-mano",
+    "precio": 175.00,
+    "stock": 40,
+    "marca": "Klein Tools",
+    "descripcion": "Alicate corta cables con mango ergonómico"
+  },
+  {
+    "id": "PROD-010",
+    "nombre": "Escalera de Aluminio 6 Peldaños",
+    "categoria": "acceso",
+    "precio": 1450.00,
+    "stock": 10,
+    "marca": "Louisville",
+    "descripcion": "Escalera tijera con bandeja porta-herramientas"
+  },
+  {
+    "id": "PROD-011",
+    "nombre": "Candado de Seguridad 50mm",
+    "categoria": "seguridad",
+    "precio": 125.00,
+    "stock": 55,
+    "marca": "Master Lock",
+    "descripcion": "Candado de acero laminado resistente"
+  },
+  {
+    "id": "PROD-012",
+    "nombre": "Flexómetro Digital Láser 40m",
+    "categoria": "herramientas-medicion",
+    "precio": 780.00,
+    "stock": 18,
+    "marca": "Bosch",
+    "descripcion": "Medidor láser con memoria y bluetooth"
+  },
+  {
+    "id": "PROD-013",
+    "nombre": "Juego de Llaves Allen 9 piezas",
+    "categoria": "herramientas-mano",
+    "precio": 145.00,
+    "stock": 50,
+    "marca": "Truper",
+    "descripcion": "Set de llaves hexagonales métricas"
+  },
+  {
+    "id": "PROD-014",
+    "nombre": "Esmeril Angular 4 1/2\"",
+    "categoria": "herramientas-electricas",
+    "precio": 980.00,
+    "stock": 20,
+    "marca": "DeWalt",
+    "descripcion": "Esmeril 820W con protector ajustable"
+  },
+  {
+    "id": "PROD-015",
+    "nombre": "Caja de Herramientas Plástica",
+    "categoria": "almacenamiento",
+    "precio": 350.00,
+    "stock": 22,
+    "marca": "Stanley",
+    "descripcion": "Caja organizadora 19\" con compartimentos"
+  },
+  {
+    "id": "PROD-016",
+    "nombre": "Brocha para Pintura 3\"",
+    "categoria": "pintura",
+    "precio": 45.00,
+    "stock": 80,
+    "marca": "Purdy",
+    "descripcion": "Brocha de cerda natural para acabados"
+  },
+  {
+    "id": "PROD-017",
+    "nombre": "Rodillo para Pintura con Extensión",
+    "categoria": "pintura",
+    "precio": 185.00,
+    "stock": 35,
+    "marca": "Truper",
+    "descripcion": "Rodillo 9\" con mango telescópico"
+  },
+  {
+    "id": "PROD-018",
+    "nombre": "Linterna LED Recargable",
+    "categoria": "iluminacion",
+    "precio": 420.00,
+    "stock": 28,
+    "marca": "Energizer",
+    "descripcion": "Linterna táctica 1000 lumens con zoom"
+  },
+  {
+    "id": "PROD-019",
+    "nombre": "Carretilla de Mano 5 pies³",
+    "categoria": "transporte",
+    "precio": 1850.00,
+    "stock": 6,
+    "marca": "Jackson",
+    "descripcion": "Carretilla con rueda neumática reforzada"
+  },
+  {
+    "id": "PROD-020",
+    "nombre": "Guantes de Trabajo Talla M",
+    "categoria": "seguridad",
+    "precio": 65.00,
+    "stock": 100,
+    "marca": "Ironclad",
+    "descripcion": "Guantes mecánicos con refuerzo en palma"
+  }
+]
